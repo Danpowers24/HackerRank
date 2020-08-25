@@ -42,3 +42,6 @@ timeConversion(s)
 // This fails two test cases on HackerRank, 
 // but they return answers that appear to be correct and in the same format 
 // as the other passing test cases so I am leaving this as is.
+
+// I am remembering that this might be a typeof issue,
+// maybe try tossing a toInt() or toStr() on the result and seeing if that appeases HackerRank
