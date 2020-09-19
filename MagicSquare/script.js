@@ -66,6 +66,7 @@ function formingMagicSquare(s) {
 // magic constant is always going to be 15?
 // so if a sum does not equal the magic constant, we need to fix it
 // add or subtract a number to make it equal 15, and have the new number not equal any other number in the matrix
+// once we find the difference between the sum of a given row/col/diag, then I need to loop through each one to find which number I can manipulate the least
 
 }
 
