@@ -3,7 +3,6 @@ let duration = [2, 2, 2]
 
 
 function maxEvents(arrival, duration) {
-
     let maxEvents = []
     let allCompanies = []
 
@@ -22,7 +21,8 @@ function maxEvents(arrival, duration) {
             return a[1] - b[1];
         }
             return a[0]-b[0]
-        })    // console.log('allCompaniesSorted', allCompaniesSorted)
+        })
+    console.log('allCompaniesSorted', allCompaniesSorted)
     // split the matrix back up into 2 different (now sorted) arrays 
     let arrivalTimesSorted = []
     let durationTimesSorted = []
@@ -36,12 +36,18 @@ function maxEvents(arrival, duration) {
     // start scheduling
     for (let i = 0; i < allCompaniesSorted.length; i++) {
         // maxEvents.push(i)
-        console.log('current comapny being evaluated: ', allCompaniesSorted[i])
+        console.log('current company being evaluated: ', allCompaniesSorted[i])
         console.log('arrivalTimesSorted[i+1] undefined? ', arrivalTimesSorted[i+1])
-        if ((arrivalTimesSorted[i] - 1) + (durationTimesSorted[i] - 1) <= arrivalTimesSorted[i+1] || arrivalTimesSorted[i+1]=== undefined) {
+        console.log((arrivalTimesSorted[i] - 1) + (durationTimesSorted[i] - 1))
+        console.log(arrivalTimesSorted[i+1])
+        // if the current company being evalutated can fit in before the next company, or if its the first/last,
+        if ((arrivalTimesSorted[i] - 1) + (durationTimesSorted[i] - 1) <= arrivalTimesSorted[i+1] || arrivalTimesSorted[i+1] === undefined 
+        // || maxEvents.length === 0
+        ) {
             maxEvents.push(allCompaniesSorted[i])
             console.log('hit first if ... maxEvents:', maxEvents)
-        } else if ((arrivalTimesSorted[i] - 1) + (durationTimesSorted[i] - 1) >= (arrivalTimesSorted[i + 1] - 1) + (durationTimesSorted[i + 1] - 1)) {
+        } 
+        else if ((arrivalTimesSorted[i] - 1) + (durationTimesSorted[i] - 1) <= (arrivalTimesSorted[i + 1])) {
             maxEvents.pop()
             console.log('hit second if ... maxEvents after pop:', maxEvents)
 
@@ -50,7 +56,8 @@ function maxEvents(arrival, duration) {
 
         }
     }
-    console.log('maxEvents.length', maxEvents.length)
+    // console.log('maxEvents.length', maxEvents.length)
+    return maxEvents.length
 }
 
 maxEvents(arrival, duration)
